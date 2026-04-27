@@ -678,7 +678,15 @@ body {
     transition: top 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     pointer-events: none; /* This ensures you can't accidentally click it and block the UI */
 }
-
+.achievement-alert {
+    position: fixed;
+    top: -200px; /* Moves it completely off the top of the screen */
+    left: 50%;
+    transform: translateX(-50%);
+    visibility: hidden; /* Makes it invisible to the browser 'eyes' */
+    opacity: 0;
+    z-index: 9999;
+}
 .gamer-toast.show {
     top: 20px; /* Slides down into view */
 }
@@ -976,7 +984,14 @@ body {
 const birthdaySong = new Audio('yoyo.mp4'); // Or .mp3 depending on your file
 birthdaySong.volume = 0.5;
 // Change this if you have more photos
-
+function unlockAchievement() {
+            const alertElement = document.querySelector('.achievement-alert');
+            
+            // This is the code we talked about:
+            alertElement.style.visibility = "visible";
+            alertElement.style.top = "20px"; // Slides it down from the "hidden" top
+            alertElement.style.opacity = "1";
+        }
 function unlockPhoto(id) {
     // ... [Your code to reveal the photo goes here] ...
     
