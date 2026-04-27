@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Captain Amr!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0a0e27;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        /* Animated Background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        
+        /* Hero Section */
+        .header {
+            position: relative;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></svg>');
+            animation: float 20s linear infinite;
+        }
+        
+        @keyframes float {
+            from { transform: translateY(0); }
+            to { transform: translateY(-100px); }
+        }
+        
+        .plane-icon {
+            font-size: 80px;
+            animation: fly 8s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(255,255,255,0.5));
+            margin-bottom: 20px;
+        }
+        
+        @keyframes fly {
+            0%, 100% { 
+                transform: translateX(-50px) translateY(0) rotate(-5deg);
+            }
+            50% { 
+                transform: translateX(50px) translateY(-30px) rotate(5deg);
+            }
+        }
+        
+        .header h1 {
+            font-size: 3.5em;
+            margin: 20px 0;
+            text-shadow: 0 0 30px rgba(255,255,255,0.5);
+            animation: glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 20px rgba(255,255,255,0.5); }
+            50% { text-shadow: 0 0 40px rgba(255,255,255,0.8); }
+        }
+        
+        .clearance-badge {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 50px;
+            margin-top: 20px;
+            border: 2px solid rgba(255,255,255,0.3);
+            font-size: 1.2em;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        /* Stats Section */
+        .stats-section {
+            position: relative;
+            background: linear-gradient(to bottom, #0a0e27, #1a1f3a);
+            padding: 80px 20px;
+            z-index: 1;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 30px 60px rgba(102, 126, 234, 0.4);
+        }
+        
+        .stat-card:hover::before {
+            transform: rotate(45deg) translate(30%, 30%);
+        }
+        
+        .stat-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.3));
+        }
+        
+        .stat-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .stat-card p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            opacity: 0.95;
+        }
+        
+        /* Photo Gallery Section - Game Style */
+        .gallery-section {
+            background: linear-gradient(to bottom, #0a0e27, #1a1f3a);
+            padding: 80px 20px;
+            position: relative;
+        }
+        
+        .gallery-title {
+            text-align: center;
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+        }
+        
+        .gallery-subtitle {
+            text-align: center;
+            color: #a0a0ff;
+            font-size: 1.2em;
+            margin-bottom: 50px;
+        }
+        
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            padding: 20px;
+        }
+        
+        .photo-card {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.4s;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .photo-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.6);
+        }
+        
+        .photo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(10px) grayscale(50%);
+            transition: all 0.6s;
+        }
+        
+        .photo-card.unlocked .photo-img {
+            filter: blur(0) grayscale(0);
+        }
+        
+        .photo-lock {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4em;
+            z-index: 3;
+            filter: drop-shadow(0 0 20px rgba(0,0,0,0.8));
+            transition: all 0.5s;
+        }
+        
+        .photo-card.unlocked .photo-lock {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(2) rotate(360deg);
+        }
+        
+        .photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.5s;
+            z-index: 2;
+        }
+        
+        .photo-card.unlocked .photo-overlay {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .photo-overlay h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+        
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s;
+            z-index: 4;
+        }
+        
+        .photo-card.unlocked .photo-caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .photo-caption p {
+            margin: 0;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+        
+        .unlock-counter {
+            text-align: center;
+            color: white;
+            font-size: 1.5em;
+            max-width: 600px;
+            margin: 40px auto 0;
+        }
+
+        .final-message {
+    direction: rtl;
+    text-align: right;
+    unicode-bidi: plaintext; /* دي بتضمن إن كل سطر يحترم لغته وما يعكسش الرموز */
+    line-height: 1.8;
+}
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-top: 15px;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.5s ease;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.8);
+        }
+        
+        /* Italian Photo Modal */
+        .italian-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s;
+        }
+        
+        .italian-modal.active {
+            display: flex;
+        }
+        
+        .italian-modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            animation: slideIn 0.5s;
+        }
+        
+        .italian-modal-content img {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.5);
+        }
+        
+        .italian-modal-caption {
+            text-align: center;
+            color: white;
+            font-size: 1.8em;
+            margin-top: 20px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+        }
+        
+        .italian-modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            font-size: 3em;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .italian-modal-close:hover {
+            transform: rotate(90deg) scale(1.2);
+            color: #ff6b6b;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+            from { transform: scale(0.8) translateY(50px); opacity: 0; }
+            to { transform: scale(1) translateY(0); opacity: 1; }
+        }
+        
+        /* Timeline Section */
+        .timeline-section {
+            background: linear-gradient(to bottom, #1a1f3a, #0a0e27);
+            padding: 80px 20px;
+            position: relative;
+        }
+        
+        .timeline-title {
+            text-align: center;
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 60px;
+            text-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+        }
+        
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .timeline-content {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 15px;
+            width: 45%;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+        
+        .timeline-content:hover {
+            transform: scale(1.05);
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .italian-easter-egg {
+            display: inline-block;
+            color: #ffd700;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 8px;
+            background: rgba(255, 215, 0, 0.1);
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        .italian-easter-egg:hover {
+            background: rgba(255, 215, 0, 0.3);
+            animation: shake 0.5s;
+            animation-iteration-count: infinite;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: #667eea;
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.8);
+        }
+        
+        /* Secret Message Section */
+        .secret-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .secret-section::before {
+            content: '🎁';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+        }
+        
+        .secret-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .secret-title {
+            font-size: 2.5em;
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+        
+        .secret-box {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 3px dashed white;
+            cursor: pointer;
+            transition: all 0.5s;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .italian-modal-content img {
+    width: 500px; /* Adjust size as needed */
+    height: 500px; /* Must match width for a perfect circle */
+    object-fit: cover; /* This prevents the photo from looking squashed */
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 15px; /* Centers the image and adds space below */
+    border: 3px solid white; /* Optional: adds a nice clean border */
+}
+        .secret-box:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.02);
+        }
+        
+        .secret-prompt {
+            color: white;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .secret-message {
+            color: white;
+            font-size: 1.3em;
+            line-height: 1.8;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s;
+            font-style: italic;
+        }
+        
+        .gamer-toast {
+    position: fixed;
+    top: -100px; /* Starts hidden above the screen */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 23, 42, 0.95);
+    border: 2px solid #7000ff;
+    box-shadow: 0 0 20px rgba(112, 0, 255, 0.4);
+    border-radius: 12px;
+    padding: 12px 25px;
+    z-index: 9999;
+    transition: top 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none;
+}
+
+.gamer-toast.show {
+    top: 20px; /* Slides down into view */
+}
+
+.toast-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.toast-title {
+    color: #7000ff;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.toast-msg {
+    color: white;
+    font-size: 14px;
+    margin: 0;
+}
+
+        .secret-box.revealed .secret-prompt {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        
+        .secret-box.revealed .secret-message {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Celebration Button */
+        .celebration-section {
+            background: #0a0e27;
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .celebration-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.5em;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        .gamer-toast {
+    position: fixed;
+    top: -100px; /* Hidden above the screen */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 23, 42, 0.95);
+    border: 2px solid #7000ff;
+    box-shadow: 0 0 20px rgba(112, 0, 255, 0.4);
+    border-radius: 12px;
+    padding: 12px 25px;
+    z-index: 9999;
+    transition: top 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none; /* This ensures you can't accidentally click it and block the UI */
+}
+
+.gamer-toast.show {
+    top: 20px; /* Slides down into view */
+}
+
+.toast-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.toast-icon {
+    font-size: 24px;
+    filter: drop-shadow(0 0 5px gold);
+}
+
+.toast-title {
+    color: #7000ff;
+    font-weight: bold;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.toast-msg {
+    color: white;
+    font-size: 14px;
+}
+
+        .celebration-btn:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.6);
+        }
+        
+        .celebration-btn:active {
+            transform: translateY(-2px) scale(1.05);
+        }
+        
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #f0f;
+            position: absolute;
+            animation: confetti-fall 8s linear forwards;
+            z-index: 9999;
+        }
+        
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .plane-icon {
+                font-size: 60px;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+            
+            .timeline-dot {
+                left: 20px;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="achievementToast" class="gamer-toast">
+    <div class="toast-content">
+        <span class="toast-icon">🏆</span>
+        <div class="toast-text">
+            <div class="toast-title">ACHIEVEMENT UNLOCKED</div>
+            <div class="toast-msg">Photo Master: All memories revealed!</div>
+        </div>
+    </div>
+</div>
+    <!-- Starry Background -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Hero Section -->
+    <div class="header">
+        <div class="plane-icon">✈️</div>
+        <h1>Happy Birthday Captain Amr! 🎂</h1>
+        <div class="clearance-badge">
+            🛡️ CLEARANCE LEVEL: LEGENDARY 🛡️
+        </div>
+        <p style="font-size: 1.3em; margin-top: 30px; max-width: 800px; line-height: 1.8;">
+            Celebrating the engineer, the pilot, the mentor, and the family pillar who makes the impossible look routine.
+        </p>
+        <div class="scroll-indicator">
+            <div style="font-size: 2em;">⬇️</div>
+            <p>Scroll to explore</p>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="stats-section">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon">🛠️</div>
+                <h3>Hardware Status</h3>
+                <p>Engineered to perfection. 0% bugs found in his advice since 1986.</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🛬</div>
+                <h3>Landing Accuracy</h3>
+                <p>Navigates Cairo's Ring Road like a Boeing 747 on a clear runway. No turbulence allowed.</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🔋</div>
+                <h3>Power Supply</h3>
+                <p>Runs on 100% pure Espresso and Family Responsibility. Never needs a recharge.</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">👔</div>
+                <h3>Style Profile</h3>
+                <p>Sunglasses: Always On. Denim: Strictly Levi’s. Logic: Always Active. Respect: Earned, never given.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Photo Gallery Section (Game-like Explorable) -->
+    <div class="gallery-section">
+        <h2 class="gallery-title">📸 MISSION PHOTOS: Click to Explore 🎮</h2>
+        <p class="gallery-subtitle">Hover and click each photo to unlock memories</p>
+        
+        <div class="photo-grid">
+            <div class="photo-card" onclick="unlockPhoto(this, 0)">
+                <div class="photo-lock">🔒</div>
+                <img src="France.jpg" alt="Captain Amr Photo 0" class="photo-img">
+                <div class="photo-overlay">
+                    <h3>Engineering Legend</h3>
+                    <p>Click to unlock this memory!</p>
+                </div>
+                <div class="photo-caption">
+                    <p>The man who makes the impossible look routine 🛠️</p>
+                </div>
+            </div>
+            
+            
+            
+            <div class="photo-card" onclick="unlockPhoto(this, 1)">
+                <div class="photo-lock">🔒</div>
+                <img src="Amr2.jpg" alt="Captain Amr Photo 1" class="photo-img">
+                <div class="photo-overlay">
+                    <h3>Captain Mode</h3>
+                    <p>Click to unlock this memory!</p>
+                </div>
+                <div class="photo-caption">
+                    <p>Sunglasses: Always On 😎</p>
+                </div>
+            </div>
+            
+            
+            
+          
+            
+            <div class="photo-card" onclick="unlockPhoto(this, 2)">
+                <div class="photo-lock">🔒</div>
+                <img src="Amr.png" alt="Captain Amr Photo 2" class="photo-img">
+                <div class="photo-overlay">
+                    <h3>Birthday King</h3>
+                    <p>Click to unlock this memory!</p>
+                </div>
+                <div class="photo-caption">
+                    <p>Today's celebration star! 🎂🎉</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="unlock-counter">
+            <p>🏆 Photos Unlocked: <span id="unlockCount">0</span>/3</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Timeline Section -->
+    <div class="timeline-section">
+        <h2 class="timeline-title">🌍 Flight Log: Captain Amr's World Tour</h2>
+        <div class="timeline">
+            
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>🇬🇧 The British Expedition</h3>
+    <p>
+        Headed to England to secure a Master’s degree and level up his expertise. 
+        While he was busy conquering academia, he also held a top-secret side hustle: 
+        <strong>Chief Toblerone Importer 🍫</strong>
+    </p>
+                    
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>🇮🇹 The Italian Job</h3>
+                    <p>Explored Italy and liked it so much he almost traded Engineering for Pizza. Legend says he still dreams of those vibes. 
+                    <br><br>
+                    <span class="italian-easter-egg" onclick="revealItalianPhoto()">
+                        👆 <i>Click here to see if Amr's Italian accent is still 10/10</i>
+                    </span>
+                    </p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>🇺🇸 The American Side-Quest</h3>
+                    <p>
+  Traded the office chair for the open road to conquer the US as a 
+  <strong>"Rapid-Response Door-to-Door Nutrition Engineer"</strong> 
+  <span style="opacity: 0.7; font-size: 0.9em;">(Yeah, he was doing delivery, and he was the best at it).</span>
+</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>🇪🇬 Return to Base</h3>
+                    <p>Mission accomplished. He’s back on home soil, trading international logistics for family leadership. He’s finished the "Vodafone era" and moved on to bigger things—mostly being the person we all look up to.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Italian Photo Modal -->
+    <div class="italian-modal" id="italianModal">
+        <div class="italian-modal-content">
+            <div class="italian-modal-close" onclick="closeItalianPhoto()">✕</div>
+<img src="italy1.png" alt="Captain Amr in Italy" style="width:500px; height:500px; border-radius:100%; object-fit:cover;">
+            <div class="italian-modal-caption">🍝 "Mamma mia! Still got it!" 🇮🇹</div>
+        </div>
+    </div>
+
+    <!-- Secret Message Section -->
+    <div class="secret-section">
+        <div class="secret-container">
+            <h2 class="secret-title">✨ Special Clearance Required ✨</h2>
+            <div class="secret-box" id="secretBox">
+                <div class="secret-prompt">
+                    👆 Click here to unlock your birthday message 👆
+                </div>
+                <div class="secret-message">
+
+يا أغلى قائد.. كل سنة وأنت طيب يا صاحبي وعقبال مليون سنة في خير وسعادة. عقبال ما تفرح  <strong> بسليم وتيم </strong> وتشوفهم أحسن الناس يارب.
+                    <br><br>
+تسلملنا دايمًا يا هندسة على الـدعم والجدعنة اللي ملهاش حدود. الواحد من غيرك كان تاه من زمان.. ربنا يديمك في حياتنا يا أحلى وأجدع خال.
+                    <br><br>
+<p>
+        شكرا يا بوب على الجدعنة والروح الحلوة، دايماً مسلكها معانا في أي حتة وفي أي مشكلة.. 
+        خليك دايماً بطلّتك وشياكتك والنضارة الراي بان اللي مفيش زيها! 🕶️✨
+    </p>         </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Celebration Section -->
+    <div class="celebration-section">
+        <h2 style="color: white; font-size: 2em; margin-bottom: 30px;">Ready for the Grand Finale?</h2>
+        <button class="celebration-btn" onclick="launchCelebration()">
+            🚀 DEPLOY BIRTHDAY.EXE 🚀
+        </button>
+    </div>
+
+    <script>
+     const achievementSound = new Audio('effect.mp3'); 
+const birthdaySong = new Audio('yoyo.mp4'); // Or .mp3 depending on your file
+birthdaySong.volume = 0.5;
+// Change this if you have more photos
+
+function unlockPhoto(id) {
+    // ... [Your code to reveal the photo goes here] ...
+    
+    // Increment the count whenever a photo is unlocked
+    unlockedCount++;
+
+    // Check if mission is complete
+   
+}
+
+        // 2. Define the function that the button calls
+        function launchCelebration() {
+            // Start the music
+            birthdaySong.play();
+
+            // Change the button text
+            const btn = event.target;
+            btn.innerHTML = "🕺 HAZY BAZY YO MAJED! 🕺";
+            
+            // Add the shake effect to the whole page
+            document.body.style.animation = "shake 0.5s infinite";
+
+            // Trigger the confetti (this calls the other function Claude wrote)
+            if (typeof launchConfetti === "function") {
+                launchConfetti();
+            } else {
+                // If the confetti function name is different in your code, 
+                // just make sure it's called here.
+                console.log("Music started, now running celebration effects!");
+            }
+        }        
+        // Create stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+
+        // Secret message reveal
+        document.getElementById('secretBox').addEventListener('click', function() {
+            this.classList.add('revealed');
+        });
+
+        // Photo unlock game mechanic
+        let unlockedCount = 0;
+        const totalPhotos = 3;
+        
+        function unlockPhoto(card, index) {
+            if (!card.classList.contains('unlocked')) {
+                card.classList.add('unlocked');
+                unlockedCount++;
+                
+                // Update counter
+                document.getElementById('unlockCount').textContent = unlockedCount;
+                
+                // Update progress bar
+                const progress = (unlockedCount / totalPhotos) * 100;
+                document.getElementById('progressFill').style.width = progress + '%';
+                
+                // Play unlock sound effect (visual feedback)
+                const unlockEmoji = document.createElement('div');
+                unlockEmoji.textContent = '🎉';
+                unlockEmoji.style.position = 'fixed';
+                unlockEmoji.style.left = '50%';
+                unlockEmoji.style.top = '50%';
+                unlockEmoji.style.fontSize = '4em';
+                unlockEmoji.style.zIndex = '99999';
+                unlockEmoji.style.animation = 'confetti-fall 1s ease-out forwards';
+                unlockEmoji.style.pointerEvents = 'none';
+                document.body.appendChild(unlockEmoji);
+                
+                setTimeout(() => unlockEmoji.remove(), 1000);
+                
+                // Check if all unlocked
+             if (unlockedCount === totalPhotos) {
+    setTimeout(() => {
+        // This is the magic line you were missing!
+        achievementSound.play().catch(e => console.log("Sound failed:", e));
+
+        const toast = document.getElementById('achievementToast');
+        toast.classList.add('show');
+
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 5000);
+    }, 500);
+}
+            }
+        }
+
+        // Italian photo easter egg
+        // 1. Declare the variable OUTSIDE the functions (Global Scope)
+let italianSong = null; 
+
+function revealItalianPhoto() {
+    document.getElementById('italianModal').classList.add('active');
+    
+    // 2. Initialize it only if it hasn't been created yet
+    if (!italianSong) {
+        italianSong = new Audio('italiana.mp4');
+    }
+    
+    // 3. Play the song
+    italianSong.play().catch(e => console.log('Audio play failed'));
+}
+
+function closeItalianPhoto() {
+    document.getElementById('italianModal').classList.remove('active');
+    
+    // 4. Now the close function can "see" the variable!
+    if (italianSong) {
+        italianSong.pause();
+        italianSong.currentTime = 0; // Reset to the beginning
+    }
+}
+
+// Close modal on ESC key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeItalianPhoto();
+    }
+});
+        // Celebration function
+        function launchCelebration() {
+            // Play birthday song
+            birthdaySong.play().catch(e => {
+                console.log('Audio autoplay prevented. User interaction required.');
+                // Fallback: try playing on next user click
+            });
+            
+            // Create confetti
+            for (let i = 0; i < 399; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                    confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 8000);
+                }, i * 33);
+            }
+
+            // Show celebration message
+            const btn = event.target;
+            btn.textContent = '🎊 HAPPY BIRTHDAY CAPTAIN AMR! 🎊';
+            btn.style.fontSize = '1.2em';
+            
+            // Add floating emojis
+            const emojis = ['🎂', '🎉', '🎈', '🎁', '⭐', '✨', '🎊', '🥳'];
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const emoji = document.createElement('div');
+                    emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                    emoji.style.position = 'fixed';
+                    emoji.style.left = Math.random() * 100 + '%';
+                    emoji.style.top = '-50px';
+                    emoji.style.fontSize = '3em';
+                    emoji.style.zIndex = '9999';
+                    emoji.style.animation = 'confetti-fall 8s linear forwards';
+                    document.body.appendChild(emoji);
+                    
+                    setTimeout(() => emoji.remove(), 8000);
+                }, i * 100);
+            }
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.stat-card, .timeline-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(50px)';
+            el.style.transition = 'all 0.6s';
+            observer.observe(el);
+        });
+    </script>
+    <div id="achievementToast" class="gamer-toast">
+    <div class="toast-content">
+        <span class="toast-icon">🏆</span>
+        <div class="toast-text">
+            <div class="toast-title">ACHIEVEMENT UNLOCKED</div>
+            <div class="toast-msg">Photo Master: All memories revealed!</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
