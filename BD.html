@@ -11,9 +11,8 @@
             box-sizing: border-box;
         }
         /* This targets the very root of the page */
-html {
-    background-color: #0a0e27; /* Sets the color even behind the status bar */
-}
+
+
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -679,14 +678,24 @@ body {
     pointer-events: none; /* This ensures you can't accidentally click it and block the UI */
 }
 .achievement-alert {
-    position: fixed;
-    top: -200px; /* Moves it completely off the top of the screen */
+    position: fixed; /* Takes it out of the normal layout flow */
     left: 50%;
     transform: translateX(-50%);
-    visibility: hidden; /* Makes it invisible to the browser 'eyes' */
+    
+    /* THE FIX: Push it much further up so the 'glow' doesn't peek through */
+    top: -500px; 
+    
+    /* Make sure it's invisible and can't be clicked while hidden */
     opacity: 0;
-    z-index: 9999;
+    visibility: hidden;
+    pointer-events: none; 
+    
+    z-index: 9999; /* Keeps it above everything else */
+    
+    /* Ensure no weird margins are pushing it down */
+    margin: 0 !important; 
 }
+
 .gamer-toast.show {
     top: 20px; /* Slides down into view */
 }
